@@ -2,10 +2,6 @@ body {
     font-family: 'Nunito', sans-serif;
     padding-top: 70px;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-
-body {
     background-color: #121212;
     color: #f1f1f1;
 }
@@ -157,4 +153,16 @@ body.light-mode .custom-card {
     object-fit: cover;
     height: 200px;
     width: 100%;
+}
+
+footer {
+    margin-bottom: 0;
+}
+
+.py-5 {
+    padding-bottom: 0 !important;
+}
+
+#jatek {
+    margin-bottom: 3rem;
 }
