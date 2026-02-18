@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spanyolország</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top shadow custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#">Spanyolország</a>
+
+
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#szoveg1">Szöveg1</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#szoveg2">Reconquista</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#jatek">Játék</a></li>
+                </ul>
+
+
+                <button id="themeToggle" class="toggle-btn">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="hero">
+        <h1>Fedezze fel<br>Spanyolországot!<br>↓</h1>
+    </header>
+    <section id="szoveg3" class="py-5">
+        <section id="latvanyossagok" class="py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center text-warning">Főbb látványosságok</h2>
+    <div class="row g-4">
+      
+      <!-- Kártya 1: Sagrada Família -->
+      <div class="col-md-4">
+        <div class="card custom-card h-100" onclick="#exampleModal">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sagrada_Fam%C3%ADlia_%282019%29.jpg/960px-Sagrada_Fam%C3%ADlia_%282019%29.jpg" class="card-img-top" alt="Sagrada Família">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Sagrada Família</h5>
+            <p class="card-text">Antoni Gaudí híres bazilikája Barcelonában, a modernizmus ikonikus műve.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+       </div>
+
+      <!-- Kártya 2: Alhambra -->
+      <div class="col-md-4">
+        <div class="card custom-card h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/1920px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" class="card-img-top" alt="Alhambra">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Alhambra</h5>
+            <p class="card-text">Granadában található mór palota, a középkori Spanyolország egyik gyöngyszeme.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kártya 3: Plaza Mayor -->
+      <div class="col-md-4">
+        <div class="card custom-card h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Madrid_Plaza_Mayor_%2848733706273%29.jpg/1920px-Madrid_Plaza_Mayor_%2848733706273%29.jpg" class="card-img-top" alt="Plaza Mayor">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Plaza Mayor</h5>
+            <p class="card-text">Madrid főtere, amely gazdag történelemmel és lenyűgöző építészetével vonzza a látogatókat.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    </section>
+
+    <section id="szoveg1" class="py-5">
+        <div class="container">
+            <div class="card custom-card p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3 class="fw-bold text-warning">Szöveg1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://picsum.photos/400/300" class="img-fluid rounded-4" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="szoveg2" class="py-5">
+        <div class="container">
+            <div class="card custom-card p-4">
+                <div class="row align-items-center flex-md-row-reverse">
+                    <div class="col-md-8">
+                        <h3 class="fw-bold text-warning">Szöveg2</h3>
+                        <p>A Reconquista (visszahódítás) a középkori Ibériai-félszigeten zajló, több évszázadon át tartó folyamat volt (711–1492), amely során a keresztény királyságok fokozatosan visszafoglalták a területet a muszlim uralom alól.
+        711-ben az arab és berber seregek legyőzték a vizigótokat, és létrehozták az al-Andalúz nevű muszlim államot. Északon azonban megmaradtak független keresztény területek (például Asztúria, León, Kasztília, Aragónia), amelyek idővel megerősödtek, és megindították a visszahódítást. A folyamat fontos állomása volt a toledói bevonulás (1085) és a las Navas de Tolosa-i csata (1212), amely jelentős fordulópontot hozott a keresztény királyságok javára.
+        A Reconquista 1492-ben zárult le, amikor Kasztíliai Izabella és Aragóniai Ferdinánd elfoglalta Granada városát, az utolsó muszlim királyságot. Ugyanebben az évben indult útnak Kolumbusz Kristóf is, ami új korszakot nyitott Spanyolország történetében.
+        A Reconquista nemcsak katonai, hanem vallási és kulturális folyamat is volt, amely jelentősen formálta Spanyolország és Portugália későbbi fejlődését.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://picsum.photos/401/300" class="img-fluid rounded-4" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+
+    <section id="jatek" class="py-5">
+        <div class="container">
+            <div class="game-section text-center p-5 shadow-lg">
+                <h2 class="fw-bold mb-3">Játék</h2>
+                <p>Ide kerül majd a mini játék.</p>
+                <button class="btn btn-dark btn-lg mt-3">Indítás</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="text-center py-4">
+        <p class="mb-0 text-secondary">© 2026 Spanyolország Projekt</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const toggleBtn = document.getElementById("themeToggle");
+
+
+    if(localStorage.getItem("theme") === "light"){
+        document.body.classList.add("light-mode");
+        toggleBtn.textContent = "☀️";
+    }
+
+
+    toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+
+        if(document.body.classList.contains("light-mode")){
+            toggleBtn.textContent = "☀️";
+            localStorage.setItem("theme", "light");
+        } else {
+            toggleBtn.textContent = "🌙";
+            localStorage.setItem("theme", "dark");
+        }
+    });
+    </script>
+</body>
+</html>
