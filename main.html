@@ -60,7 +60,7 @@
       <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel"><b>Sagrada Família</b></h1>
+                 <h1 class="modal-title fs-5" id="exampleModalLabel"><b>Sagrada Família</b></h1>
                 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -77,13 +77,16 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
             </div>
             </div>
         </div>
        </div>
+
       <!-- Kártya 2: Alhambra -->
       <div class="col-md-4">
-        <div class="card custom-card h-100">
+        <div class="card custom-card h-100"data-bs-toggle="modal"
+       data-bs-target="#alhambra">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/1920px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" class="card-img-top" alt="Alhambra">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title fw-bold">Alhambra</h5>
@@ -91,10 +94,41 @@
           </div>
         </div>
       </div>
+      <!--Kártya2 modal-->
+      <div class="modal fade" id="alhambra" tabindex="-1" aria-labelledby="alhambraid" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="alhambraid">Sagrada Família</h1>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/1920px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" class="card-img-top"  id="alhambraid" alt="valami">
+                </div>
+                <div class="col-md-6">
+                <p>A Sagrada Família Barcelona legismertebb látványossága és a világ egyik legkülönlegesebb bazilikája. Az építkezés 1882-ben kezdődött, fő tervezője Antoni Gaudí volt, aki a természet formáiból merített ihletet.
 
+A templom híres monumentális tornyairól, részletgazdag homlokzatairól és a belső térben található, színes üvegablakokon átszűrődő fényjátékról. Az épület még ma is építés alatt áll, és várhatóan a 2030-as években készül el teljesen.
+
+A Sagrada Família 2005 óta az UNESCO világörökség része, és évente több millió turista látogatja.</p>
+                </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
+            </div>
+            </div>
+        </div>
+       </div>
       <!-- Kártya 3: Plaza Mayor -->
       <div class="col-md-4">
-        <div class="card custom-card h-100">
+        <div class="card custom-card h-100"data-bs-toggle="modal"
+       data-bs-target="#mayor">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Madrid_Plaza_Mayor_%2848733706273%29.jpg/1920px-Madrid_Plaza_Mayor_%2848733706273%29.jpg" class="card-img-top" alt="Plaza Mayor">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title fw-bold">Plaza Mayor</h5>
@@ -105,7 +139,37 @@
 
     </div>
   </div>
+<!--Kártya3 modal-->
+      <div class="modal fade" id="mayor" tabindex="-1" aria-labelledby="mayorid" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="mayorid">Sagrada Família</h1>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Madrid_Plaza_Mayor_%2848733706273%29.jpg/1920px-Madrid_Plaza_Mayor_%2848733706273%29.jpg" class="card-img-top"  id="mayorid" alt="valami">
+                </div>
+                <div class="col-md-6">
+                <p>A Sagrada Família Barcelona legismertebb látványossága és a világ egyik legkülönlegesebb bazilikája. Az építkezés 1882-ben kezdődött, fő tervezője Antoni Gaudí volt, aki a természet formáiból merített ihletet.
 
+A templom híres monumentális tornyairól, részletgazdag homlokzatairól és a belső térben található, színes üvegablakokon átszűrődő fényjátékról. Az épület még ma is építés alatt áll, és várhatóan a 2030-as években készül el teljesen.
+
+A Sagrada Família 2005 óta az UNESCO világörökség része, és évente több millió turista látogatja.</p>
+                </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
+            </div>
+            </div>
+        </div>
+       </div>
     </section>
 
     <section id="szoveg1" class="py-5">
