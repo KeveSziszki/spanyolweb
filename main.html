@@ -46,7 +46,8 @@
       
       <!-- Kártya 1: Sagrada Família -->
       <div class="col-md-4">
-        <div class="card custom-card h-100" onclick="#exampleModal">
+        <div class="card custom-card h-100" data-bs-toggle="modal"
+       data-bs-target="#sagrada">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sagrada_Fam%C3%ADlia_%282019%29.jpg/960px-Sagrada_Fam%C3%ADlia_%282019%29.jpg" class="card-img-top" alt="Sagrada Família">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title fw-bold">Sagrada Família</h5>
@@ -54,11 +55,13 @@
           </div>
         </div>
       </div>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Kártya1 modal-->
+      <div class="modal fade" id="sagrada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Sagrada Família</h1>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sagrada_Fam%C3%ADlia_%282019%29.jpg/960px-Sagrada_Fam%C3%ADlia_%282019%29.jpg" class="card-img-top" id="exampleModalLabel" alt="Sagrada Família">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
