@@ -1,26 +1,38 @@
 body {
     font-family: 'Nunito', sans-serif;
-    padding-top: 70px;
     transition: background-color 0.3s ease, color 0.3s ease;
     background-color: #121212;
-    color: #f1f1f1;
+    color: #f5f0e6;
+    padding-top: 70px;
 }
-
 
 .custom-navbar {
     background-color: #1e1e1e;
 }
 
-
 .custom-card {
     background-color: #1f1f1f;
-    color: white;
+    color: #f3e8dc;
     border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
+div.col-md-4 .custom-card:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.card img {
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
 
 .hero {
     height: 100vh;
+    min-height: 600px;
     background: url("img/kesz.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -29,13 +41,11 @@ body {
     color: white;
 }
 
-
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 6vw, 4.5rem);
     font-weight: 800;
     text-shadow: 0 0 20px rgba(0,0,0,0.7);
 }
-
 
 .game-section {
     background: linear-gradient(135deg, #ffb347, #ff6b6b);
@@ -43,123 +53,22 @@ body {
     border-radius: 20px;
 }
 
-
 .toggle-btn {
     background: #333;
     color: white;
     border: none;
-    padding: 6px 14px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
     margin-left: 15px;
     cursor: pointer;
 }
 
-
 footer {
     background: #000;
-}
-
-
-body.light-mode {
-    background-color: #f8f9fa;
-    color: #212529;
-}
-
-
-body.light-mode .custom-navbar {
-    background-color: #ffffff;
-}
-
-
-body.light-mode .navbar-brand,
-body.light-mode .nav-link {
-    color: #212529 !important;
-}
-
-
-body.light-mode .custom-card {
-    background-color: #ffffff;
-    color: #212529;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-
-body.light-mode .game-section {
-    background: linear-gradient(135deg, #ffc371, #ff5f6d);
-    color: black;
-}
-
-
-body.light-mode .toggle-btn {
-    background: #ddd;
-    color: black;
-}
-
-
-body.light-mode footer {
-    background: #e9ecef;
-}
-
-
-div .card {
-    background-color: #1f1f1f;
-}
-.custom-card {
-    background-color: #1f1f1f;
-    color: #f1f1f1;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-}
-
-body.light-mode .custom-card {
-    background-color: #ffffff;
-    color: #212529;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.card img {
-    border-radius: 12px;
-    object-fit: cover;
-}
-.custom-card {
-    background-color: #1f1f1f;
-    color: #f1f1f1;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-}
-
-body.light-mode .custom-card {
-    background-color: #ffffff;
-    color: #212529;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.card img {
-    border-radius: 12px;
-    object-fit: cover;
-    height: 200px;
-    width: 100%;
-}
-
-footer {
     margin-bottom: 0;
 }
 
-.py-5 {
+section.py-5 {
     padding-bottom: 0 !important;
 }
 
@@ -167,6 +76,46 @@ footer {
     margin-bottom: 3rem;
 }
 
-.modal-content {
-    color:#212529;
+body.light-mode {
+    background-color: #f3f5e8;
+    color: #212529;
+}
+
+body.light-mode .custom-navbar {
+    background-color: #f6f7f0;
+}
+
+body.light-mode .navbar-brand,
+body.light-mode .nav-link {
+    color: #212529 !important;
+}
+
+body.light-mode .custom-card {
+    background-color: #ffffff;
+    color: #212529;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+body.light-mode .game-section {
+    background: linear-gradient(135deg, #ffc371, #ff5f6d);
+    color: #212529;
+}
+
+body.light-mode .toggle-btn {
+    background: #ddd;
+    color: #212529;
+}
+
+body.light-mode footer {
+    background: #dee0d2;
+}
+
+body.light-mode .modal-content {
+    background-color: #e2e3e4;
+    color: #212529;
+}
+
+body .modal-content {
+    background-color: #1d1f20;
+    color: #f3e8dc;
 }
