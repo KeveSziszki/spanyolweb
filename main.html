@@ -22,6 +22,7 @@
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link text-white" href="#latvanyossagok">Látványosságok</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#szoveg1">Kultúra</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#jatek">Játék</a></li>
                 </ul>
                 <button id="themeToggle" class="toggle-btn">🌙</button>
@@ -149,6 +150,86 @@
             </div>
         </section>
 
+        
+        <section id="terkep" class="py-5">
+            <div class="container">
+                <h2 class="fw-bold mb-4 text-center text-warning">Turisztikai térkép</h2>
+
+                <div class="position-relative text-center">
+                    <!-- Térkép kép -->
+                    <img src="img/Relief_Map_of_Spain.png" class="img-fluid rounded-4 shadow" alt="Spanyolország térkép">
+
+                    <!-- Madrid -->
+                    <button class="btn btn-danger position-absolute"
+                            style="top:39%; left:40%;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#madridModal">
+                        Madrid
+                    </button>
+                    <div class="modal fade" id="madridModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Madrid</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                Madrid Spanyolország fővárosa és az ország politikai, gazdasági és kulturális központja. A város az ország szívében helyezkedik el, és több mint hárommillió lakosával az egyik legnagyobb európai főváros. Madridban található a királyi család hivatalos rezidenciája, a Királyi Palota, valamint a világhírű Prado Múzeum, amely olyan festők alkotásait őrzi, mint Velázquez vagy Goya.
+
+                                A város híres elegáns sugárútjairól, nagy tereiről és pezsgő éjszakai életéről. A Plaza Mayor és a Puerta del Sol a történelmi központ legfontosabb találkozóhelyei. Madrid sportélete is kiemelkedő, különösen a futball, hiszen itt játszik a világhírű Real Madrid. A város egyszerre modern és történelmi hangulatú, így minden korosztály számára vonzó úti cél.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Barcelona -->
+                    <button class="btn btn-warning position-absolute"
+                            style="top:27%; left:75%;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#barcelonaModal">
+                        Barcelona
+                    </button>
+                    <div class="modal fade" id="barcelonaModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Barcelona</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                Barcelona Spanyolország második legnagyobb városa, és Katalónia fővárosa. A Földközi-tenger partján fekszik, így egyszerre kínál városi élményeket és tengerparti kikapcsolódást. A város világszerte ismert különleges építészetéről, különösen Antoni Gaudí munkásságáról. A Sagrada Família, a Park Güell és a Casa Batlló mind Barcelona jelképei közé tartoznak.
+
+                                Barcelona kulturálisan is rendkívül gazdag: saját nyelve a katalán, amelyet a spanyol mellett hivatalosan is használnak. A La Rambla sétálóutca, a gótikus negyed és a modern kikötő mind népszerű turisztikai látványosságok. A város sportélete is jelentős, hiszen itt található az FC Barcelona futballcsapat otthona. Barcelona különleges hangulata, mediterrán klímája és pezsgő kulturális élete miatt az egyik leglátogatottabb város Európában.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sevilla -->
+                    <button class="btn btn-dark position-absolute"
+                            style="top:70%; left:27%;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#sevillaModal">
+                        Sevilla
+                    </button>
+                    <div class="modal fade" id="sevillaModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Sevilla</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                Sevilla Andalúzia fővárosa, és a dél-spanyolországi kultúra egyik legfontosabb központja. A város a Guadalquivir folyó partján fekszik, és történelme szorosan összefonódik a mór és keresztény hagyományokkal. Sevilla egyik legismertebb épülete az Alcázar királyi palota, amely az iszlám és a keresztény építészet különleges keverékét mutatja. A város katedrálisa a világ egyik legnagyobb gótikus temploma.
+
+                                Sevilla a flamenco szülőhelyeként is ismert, így a zene és a tánc a mindennapi élet része. Tavasszal rendezik meg a híres Feria de Abril fesztivált, amely színes ruhákkal, zenével és hagyományos ünnepléssel vonzza a látogatókat. A város hangulata barátságos és szenvedélyes, utcái tele vannak narancsfákkal és történelmi épületekkel. Sevilla igazi andalúz élményt nyújt az ide érkezőknek.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="szoveg1" class="py-5">
             <div class="container">
                 <div class="card custom-card p-4">
@@ -164,7 +245,6 @@
                 </div>
             </div>
         </section>
-        
         <section id="szoveg2" class="py-5">
             <div class="container">
                 <div class="card custom-card p-4">
