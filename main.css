@@ -135,3 +135,39 @@ body.light-mode .btn-close {
 .col-md-4 .card.custom-card:hover {
     cursor: pointer;
 }
+footer p {
+    color: #d1c8bc;
+}
+body.light-mode footer p {
+    color: #212529;
+}
+
+
+
+.pin {
+    width: 22px;
+    height: 22px;
+    background-color: red;
+    border-radius: 50%;
+    border: 3px solid white;
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+.pin:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+.infobox {
+    position: absolute;
+    background: white;
+    padding: 10px 2px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    transform: translate(-50%, -110%);
+    display: none;
+    min-width: 150px;
+    z-index: 20;
+}
+.infobox button {
+    margin-top: 5px;
+}
