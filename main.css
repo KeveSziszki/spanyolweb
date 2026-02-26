@@ -11,7 +11,7 @@ body {
 }
 
 .custom-navbar {
-    background-color: #D46453;
+    background-color: #1e1e1e;
 }
 
 .custom-card {
@@ -86,7 +86,7 @@ body.light-mode {
 }
 
 body.light-mode .custom-navbar {
-    background-color: #f6f7f0;
+    background-color: #D46453;
 }
 
 body.light-mode .navbar-brand,
