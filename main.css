@@ -171,3 +171,26 @@ body.light-mode footer p {
 .infobox button {
     margin-top: 5px;
 }
+
+@media (max-width: 999px) and (min-width: 576px) {     /* everything below 1000px */
+    #kultura,
+    #recon {
+        flex-direction: column !important;   /* force vertical stack */
+    }
+
+    /* Make sure text comes after image in both sections on mobile */
+    #kultura .col-md-8,
+    #recon .col-md-8 {
+        order: 2;
+        margin-top: 1.5rem;          /* nice spacing between image and text */
+    }
+
+    #kultura .col-md-4,
+    #recon .col-md-4 {
+        order: 1;
+        min-width: 440px;         /* prevents tiny images – adjust 240–320px to your taste */
+        max-height: 380px;
+        object-fit: cover;           /* crops nicely instead of distorting */
+        object-position: center;
+    }
+}
