@@ -10,7 +10,7 @@ class GameController
 	private layerBG: LayerBG;
 	public layerUnit: LayerUnit;
 	public layerTerrain: LayerTerrain;
-	private input: InputHandler;
+	private input: InputHandler | undefined;
 	public Container: HTMLElement;
 	public Window: Rect;
 	public BoardHeight: number;
@@ -20,8 +20,9 @@ class GameController
 	public AIUnits: GameUnit[];
 	public CurrentTurn:number = 0;
 	private maxTurn: number = 15;
-	
-
+	private cities: Pont[]
+	private remCities: number = 0
+	public allowInput: boolean = true;
 	constructor() {
 		
 		this.Container = document.getElementById("gamePage");
@@ -33,18 +34,20 @@ class GameController
 		this.BoardHeight = (this.Rows + 1) * this.GridMan.GRID_Y_SPACE + this.GridMan.GRID_Y_OFFSET;
 		this.BoardWidth = (this.Cols + 1) * this.GridMan.GRID_X_SPACE + this.GridMan.GRID_X_SPACE / 2;
 		
-		this.layerBG = new LayerBG("canvas_bg", "spain.png", this);
+		this.layerBG = new LayerBG("canvas_bg", "img/spain.png", this);
 		this.layerTerrain = new LayerTerrain("canvas_terrain", this);
 		this.layerGrid = new LayerGrid("canvas_grid", this);
 		this.layerSelection = new LayerSelection("canvas_selection", this);
 		this.layerUnit = new LayerUnit("canvas_unit", this);
 		this.selectionHandler = new SelectionHandler(this);
 		this.input = new InputHandler(this);
+		this.cities = [{ x: 2, y: 2 }, { x: 9, y: 5 }, { x: 16, y: 5 }, { x: 10, y: 8 }, { x: 11, y: 8 }, { x: 10, y: 9 }, { x: 7, y: 15}, { x: 15, y: 14 }];
+		this.remCities = this.cities.length
 	}
 
 	public start=()=>
 	{
-		let cities: Pont[] = [{ x: 2, y: 2 }, { x: 9, y: 5 }, { x: 16, y: 5 }, { x: 10, y: 8 }, { x: 11, y: 8 }, { x: 10, y: 9 }, { x: 7, y: 15}, { x: 15, y: 14 }];
+		
 		this.Cells = [];
 		this.PlayerUnits = [];
 		this.AIUnits = [];
@@ -60,13 +63,13 @@ class GameController
 			this.Cells.push(currentRow);
 		}
 		//városok megtalálása
-		for (var i = 0; i < cities.length; i++) {
-			this.Cells[cities[i].y][cities[i].x].Type = TerrainType.City;
+		for (var i = 0; i < this.cities.length; i++) {
+			this.Cells[this.cities[i].y][this.cities[i].x].Type = TerrainType.City;
         }
 		//lovasság
 		for (var i = 0; i < 5; i++) {
-			this.PlayerUnits.push(new GameUnit(UnitType.Cavalry, 20, 6, 1, 2, true));
-			this.AIUnits.push(new GameUnit(UnitType.Cavalry, 20, 6, 1, 2, false));
+			this.PlayerUnits.push(new GameUnit(UnitType.Cavalry, 12, 5, 1, 2, true));
+			this.AIUnits.push(new GameUnit(UnitType.Cavalry, 12, 5, 1, 2, false));
 		}
 		//gyalogság
 		for (var i = 0; i < 14; i++) {
@@ -75,21 +78,26 @@ class GameController
 		}
 		//extra
 		this.AIUnits.push(new GameUnit(UnitType.Foot, 10, 4, 1, 1, false));
-		this.PlayerUnits.push(new GameUnit(UnitType.Siege, 5, 10, 1, 1, true));
+		this.PlayerUnits.push(new GameUnit(UnitType.Siege, 5, 15, 1, 1, true));
 		//pozició randomozilása player seregnek
 		this.randomizeUnits(1, 3, 4, this.Cols - 4, this.PlayerUnits);
 
 		// városokba ellenség
 		let footIndex = 5;
-		for (var i = 0; i < cities.length; i++) {
-			let cellCity = this.Cells[cities[i].y][cities[i].x];
+		for (var i = 0; i < this.cities.length; i++) {
+			let cellCity = this.Cells[this.cities[i].y][this.cities[i].x];
 			let foot = this.AIUnits[footIndex++];
 			foot.Cell = cellCity; cellCity.Unit = foot;
 		}
 		
 		// ai sereg randomizálása
 		this.randomizeUnits(6, this.Rows - 5, 4, this.Cols - 5, this.AIUnits);
-		
+		let song = new Audio
+		song.src = "Spainishdrama.mp3"
+		song.loop = true
+		song.play();
+		song.volume = 0
+		this.input!.AllowInput = true;
 		this.selectionHandler.Reset();
 		this.NextTurn();
 		this.Redraw();
@@ -150,9 +158,30 @@ class GameController
 				u.TurnMovementLeft = u.Movement
 			})
 			document.getElementById("turns")!.textContent = `Turn ${this.CurrentTurn}/${this.maxTurn}`
+			this.cities.forEach((c) => {
+				if (this.Cells[c.y][c.x].Type == TerrainType.City && this.Cells[c.y][c.x].Unit != undefined && this.Cells[c.y][c.x].Unit?.IsHooman)
+				{
+					this.Cells[c.y][c.x].Type = TerrainType.ConqueredCity
+					this.remCities--;
+					
+				}
+			})
+			document.getElementById("cities")!.textContent = `Cities Remaining: ${this.remCities}`
 			this.selectionHandler.Reset();
 			this.Redraw();
+			if (this.remCities == 0	)
+			{
+				this.layerUnit.clear()
+				
+				this.layerUnit.ctx.font = `${Math.floor(this.layerUnit.ctx.canvas.width/6)}px ariel`;
+				let img = new Image();
+				img.onload = (ev: Event) => {
+					this.layerUnit.ctx.drawImage(img,0,0);
+				}
+				img.src = "img/victory.png";
+			}
 		}
+
 	}
 
 	
