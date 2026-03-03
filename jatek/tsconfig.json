@@ -1,0 +1,15 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": false,
+    "target": "es2017"
+  },
+  "include": [ "*.ts" ],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
