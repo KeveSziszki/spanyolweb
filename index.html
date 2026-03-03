@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
+    <script src="CommonTypes.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="Utility.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="GridManager.js" type="text/javascript" charset="UTF-8"></script>
+	
+	<script src="LayerBase.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="LayerGrid.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="LayerBG.js" type="text/javascript" charset="UTF-8"></script>
+
+
+	<script src="LayerSelection.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="LayerTerrain.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="LayerUnit.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="SelectionHandler.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="InputHandler.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="GameController.js" type="text/javascript" charset="UTF-8"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spanyolország</title>
@@ -259,12 +274,30 @@
             </div>
         </section>
 
-        <section id="jatek" class="py-5">
+<section id="jatek" class="py-5">
             <div class="container">
                 <div class="game-section text-center p-5 shadow-lg">
-                    <h2 class="fw-bold mb-3">Játék</h2>
-                    <p>Ácsi bácsi, Sólyom még nincs kész.</p>
-                    <button class="btn btn-dark btn-lg mt-3">Indítás</button>
+                    <div id="gamePage">
+                        <canvas id="canvas_bg"></canvas>
+                        <canvas id="canvas_terrain"></canvas>
+                        <canvas id="canvas_grid"></canvas>
+                        <!--<canvas id="canvas_letters"></canvas>
+                    <canvas id="canvas_defNumbers"></canvas>-->
+                        <canvas id="canvas_selection"></canvas>
+                        <canvas id="canvas_unit"></canvas>
+                        <canvas id="canvas_animation"></canvas>
+                    </div>
+                    <script>
+                        window.onload = () => {
+                            let game = new GameController();
+                            game.start();
+                        };
+                    </script>
+                    <div class="buttons">
+                        <span id="turns">Turn: 1</span>
+                        <button type="button" id="btn-next-turn">Next Turn</button>
+                        
+                    </div>    
                 </div>
             </div>
         </section>
