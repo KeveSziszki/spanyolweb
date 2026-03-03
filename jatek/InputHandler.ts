@@ -1,11 +1,16 @@
 ﻿class InputHandler {
 	private game: GameController;
+	public AllowInput: boolean = true;
     constructor(game: GameController) {
         this.game = game;
         this.bind();
     }
     private bind(): void {
         document.onkeyup = (ev: KeyboardEvent) => {
+			if (!this.AllowInput)
+			{
+				return false;
+			}
 			switch (ev.code) {
 				case "KeyS":
 					{
@@ -30,6 +35,10 @@
 			}
 		}
 		this.game.Container.onmouseup = (e: MouseEvent) => {
+			if (!this.AllowInput)
+			{
+				return false;
+			}
 			if (e.button == 0) {
 				let tempSelected = this.getCellAtPixel(e.offsetX, e.offsetY);
 				if (tempSelected != undefined) {
@@ -39,6 +48,8 @@
 		}
 		document.getElementById("btn-next-turn")!.addEventListener("click",(e:MouseEvent) => {
 			this.game.NextTurn()
+		})
+		document.getElementById("btn-zene")!.addEventListener("click",(e:MouseEvent) => {
 		})
 	}
 

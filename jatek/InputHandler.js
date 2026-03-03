@@ -1,10 +1,14 @@
 class InputHandler {
     constructor(game) {
+        this.AllowInput = true;
         this.game = game;
         this.bind();
     }
     bind() {
         document.onkeyup = (ev) => {
+            if (!this.AllowInput) {
+                return false;
+            }
             switch (ev.code) {
                 case "KeyS":
                     {
@@ -29,6 +33,9 @@ class InputHandler {
             }
         };
         this.game.Container.onmouseup = (e) => {
+            if (!this.AllowInput) {
+                return false;
+            }
             if (e.button == 0) {
                 let tempSelected = this.getCellAtPixel(e.offsetX, e.offsetY);
                 if (tempSelected != undefined) {
@@ -38,6 +45,8 @@ class InputHandler {
         };
         document.getElementById("btn-next-turn").addEventListener("click", (e) => {
             this.game.NextTurn();
+        });
+        document.getElementById("btn-zene").addEventListener("click", (e) => {
         });
     }
     moveWindow(diffX, diffY) {

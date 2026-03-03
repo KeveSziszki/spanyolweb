@@ -72,6 +72,7 @@ enum TerrainType {
     River = 3,
     Mountain = 4,
     City = 5,
+    ConqueredCity = 6
 }
 
 class Rect {
@@ -169,7 +170,8 @@ class GameUnit {
         let distance: number = this.Cell.DistanceTo(target);
         return distance <= this.Range &&
             target.Unit != undefined &&
-            target.Unit.IsHooman != this.IsHooman;
+            target.Unit.IsHooman != this.IsHooman &&
+            this.CanAttack;
     }
 }
 
