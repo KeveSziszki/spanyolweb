@@ -7,7 +7,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     background-color: #121212;
     color: #f5f0e6;
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 .custom-navbar {
@@ -172,25 +172,45 @@ body.light-mode footer p {
     margin-top: 5px;
 }
 
-@media (max-width: 999px) and (min-width: 576px) {     /* everything below 1000px */
+button.navbar-toggler {
+    background-color: #363434 !important;
+}
+
+body.light-mode button.navbar-toggler {
+    background-color: unset;
+}
+
+
+
+@media (max-width: 991px) and (min-width: 576px) {
     #kultura,
     #recon {
-        flex-direction: column !important;   /* force vertical stack */
+        flex-direction: column !important;
     }
 
-    /* Make sure text comes after image in both sections on mobile */
     #kultura .col-md-8,
     #recon .col-md-8 {
         order: 2;
-        margin-top: 1.5rem;          /* nice spacing between image and text */
+        margin-top: 1.5rem;
     }
 
     #kultura .col-md-4,
     #recon .col-md-4 {
         order: 1;
-        min-width: 440px;         /* prevents tiny images – adjust 240–320px to your taste */
+        min-width: 440px;
         max-height: 380px;
-        object-fit: cover;           /* crops nicely instead of distorting */
+        object-fit: cover;
         object-position: center;
+    }
+
+    button#themetoggle {
+        margin-left: 0px !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    #szoveg1 div.row div,
+    #szoveg2 div.row div {
+        width: unset;
     }
 }
