@@ -177,6 +177,67 @@ body.light-mode button.navbar-toggler {
     background-color: unset !important;
 }
 
+#gamePage
+{
+    border: 2px solid black;
+    position: relative;
+    width: 50%;
+    height: 50vh;
+    margin: auto;
+}
+    #gamePage canvas
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+.game-section .buttons
+{
+    padding: 1rem;
+}
+
+.lenyil {
+    width: 30px;
+    transition: transform 0.5s ease;
+}
+
+[data-bs-toggle="collapse"][aria-expanded="true"] .lenyil {
+    transform: rotate(-180deg);
+}
+
+#lenyildiv {
+    width: 30px;
+}
+
+#lenyildiv a {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.p-4 {
+    align-items: center;
+}
+
+body.light-mode #collapseExample .card-body,
+body.light-mode #collapseExample1 .card-body {
+    background-color: unset;
+    
+}
+
+#collapseExample .card-body,
+#collapseExample1 .card-body {
+    padding: var(--bs-card-spacer-y) 0px !important;
+    border: none !important;
+    border-top: 1.5px solid #ff1500 !important;
+    border-radius: unset !important;
+    background-color: #1f1f1f;
+}
+
 
 
 @media (max-width: 991px) and (min-width: 576px) {
@@ -216,28 +277,4 @@ body.light-mode button.navbar-toggler {
     #themeToggle {
         margin-left: 0px;
     }
-}
-
-#gamePage
-{
-    border: 2px solid black;
-    position: relative;
-    width: 50%;
-    height: 50vh;
-    margin: auto;
-}
-    #gamePage canvas
-    {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-.game-section .buttons
-{
-    padding: 1rem;
 }
