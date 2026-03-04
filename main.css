@@ -174,7 +174,7 @@ button.navbar-toggler {
 }
 
 body.light-mode button.navbar-toggler {
-    background-color: unset;
+    background-color: unset !important;
 }
 
 
@@ -212,13 +212,18 @@ body.light-mode button.navbar-toggler {
     }
 }
 
+@media (max-width: 991px) {
+    #themeToggle {
+        margin-left: 0px;
+    }
+}
+
 #gamePage
 {
     border: 2px solid black;
     position: relative;
     width: 50%;
     height: 50vh;
-    /*max-height: 80vh;*/
     margin: auto;
 }
     #gamePage canvas
