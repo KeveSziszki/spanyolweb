@@ -256,7 +256,7 @@
                 <div class="row justify-content-center my-4" id="lenyil">
                     <div class="col-auto text-center">
                         <a data-bs-toggle="collapse" href="#latvanyossagok-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <img src="img/down-arrow.png" class="lenyil" id="lenyila1">
+                            <img src="img/down-arrow.png" class="lenyil" id="lenyila3">
                         </a>
                     </div>
                 </div>
@@ -480,6 +480,7 @@
             const toggleBtn = document.getElementById("themeToggle");
             const lenyil1 = document.getElementById("lenyila1");
             const lenyil2 = document.getElementById("lenyila2");
+            const lenyil3 = document.getElementById("lenyila3");
 
             function setTheme(theme) {
                 if (theme === "light") {
@@ -487,11 +488,13 @@
                     toggleBtn.textContent = "☀️";
                     lenyil1.src = "img/down-arrow.png";
                     lenyil2.src = "img/down-arrow.png";
+                    lenyil3.src = "img/down-arrow.png";
                 } else {
                     document.body.classList.remove("light-mode");
                     toggleBtn.textContent = "🌙";
                     lenyil1.src = "img/down-arrow-light.png";
                     lenyil2.src = "img/down-arrow-light.png";
+                    lenyil3.src = "img/down-arrow-light.png";
                 }
                 localStorage.setItem("theme", theme);
             }
