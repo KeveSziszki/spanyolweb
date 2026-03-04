@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
+    <script src="jatek/CommonTypes.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/Utility.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/GridManager.js" type="text/javascript" charset="UTF-8"></script>
+	
+	<script src="jatek/LayerBase.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/LayerGrid.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/LayerBG.js" type="text/javascript" charset="UTF-8"></script>
+
+
+	<script src="jatek/LayerSelection.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/LayerTerrain.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/LayerUnit.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/SelectionHandler.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/InputHandler.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="jatek/GameController.js" type="text/javascript" charset="UTF-8"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spanyolország</title>
@@ -11,7 +26,7 @@
 </head>
 
 
-<body>
+<body class="light-mode">
     <nav class="navbar navbar-expand-lg fixed-top shadow custom-navbar">
         <div class="container">
             <a class="navbar-brand fw-bold text-white" href="#">Spanyolország</a>
@@ -25,7 +40,7 @@
                     <li class="nav-item"><a class="nav-link text-white" href="#szoveg1">Kultúra</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#jatek">Játék</a></li>
                 </ul>
-                <button id="themeToggle" class="toggle-btn">🌙</button>
+                <button id="themeToggle" class="toggle-btn">☀️</button>
             </div>
         </div>
     </nav>
@@ -196,7 +211,7 @@
 
                     <!-- Sevilla -->
                     <div class="pin" style="top:73%; left:27%;" onclick="toggleInfo('info-sevilla')"></div>
-                    <div class="infobox" id="info-sevilla" style="top:70%; left:27%;">
+                    <div class="infobox" id="info-sevilla" style="top:73%; left:27%;">
                         <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#sevillaModal">
                             Sevilla
                         </button>
@@ -238,6 +253,17 @@
                             <img src="https://pcdn.hu/articles/images-xl/g/e/t/gettyimages-2211518350-epiteszet-epulet-kultura-madrid-muzeum-muveszet-spanyol-tortenelem-748723.jpg" class="img-fluid rounded-4" alt="Kultúra">
                         </div>
                     </div>
+                    
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nulla, iste quas rem cupiditate vitae magni facere voluptate doloremque delectus ullam aliquam nesciunt blanditiis incidunt, corrupti mollitia excepturi ducimus soluta!
+                        </div>
+                    </div>
+                    <div class="row align-items-center" id="lenyildiv">
+                        <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <img src="img/down-arrow.png" class="lenyil" id="lenyila1">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -255,16 +281,44 @@
                             <img src="img/reconquista.jpg" class="img-fluid rounded-4" alt="Reconquista">
                         </div>
                     </div>
+
+                    <div class="collapse" id="collapseExample1">
+                        <div class="card card-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nulla, iste quas rem cupiditate vitae magni facere voluptate doloremque delectus ullam aliquam nesciunt blanditiis incidunt, corrupti mollitia excepturi ducimus soluta!
+                        </div>
+                    </div>
+                    <div class="row align-items-center" id="lenyildiv">
+                        <a data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <img src="img/down-arrow.png" class="lenyil" id="lenyila2">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="jatek" class="py-5">
+<section id="jatek" class="py-5">
             <div class="container">
                 <div class="game-section text-center p-5 shadow-lg">
-                    <h2 class="fw-bold mb-3">Játék</h2>
-                    <p>Ácsi bácsi, Sólyom még nincs kész.</p>
-                    <button class="btn btn-dark btn-lg mt-3">Indítás</button>
+                    <div id="gamePage">
+                        <canvas id="canvas_bg"></canvas>
+                        <canvas id="canvas_terrain"></canvas>
+                        <canvas id="canvas_grid"></canvas>
+                        <!--<canvas id="canvas_letters"></canvas>
+                    <canvas id="canvas_defNumbers"></canvas>-->
+                        <canvas id="canvas_selection"></canvas>
+                        <canvas id="canvas_unit"></canvas>
+                        <canvas id="canvas_animation"></canvas>
+                    </div>
+                    <script>
+                        window.onload = () => {
+                            let game = new GameController();
+                            game.start();
+                        };
+                    </script>
+                    <div class="buttons">
+                        <span id="turns">Turn: 1</span>
+                        <button type="button" id="btn-next-turn" class="btn rounded bg-warning mx-1">Next Turn</button>
+                    </div>    
                 </div>
             </div>
         </section>
@@ -276,26 +330,34 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             const toggleBtn = document.getElementById("themeToggle");
+            const lenyil1 = document.getElementById("lenyila1");
+            const lenyil2 = document.getElementById("lenyila2");
 
-            if(localStorage.getItem("theme") === "light"){
-                document.body.classList.add("light-mode");
-                toggleBtn.textContent = "☀️";
+            function setTheme(theme) {
+                if (theme === "light") {
+                    document.body.classList.add("light-mode");
+                    toggleBtn.textContent = "☀️";
+                    lenyil1.src = "img/down-arrow.png";
+                    lenyil2.src = "img/down-arrow.png";
+                } else {
+                    document.body.classList.remove("light-mode");
+                    toggleBtn.textContent = "🌙";
+                    lenyil1.src = "img/down-arrow-light.png";
+                    lenyil2.src = "img/down-arrow-light.png";
+                }
+                localStorage.setItem("theme", theme);
             }
 
+            const saved = localStorage.getItem("theme");
+            setTheme(saved || "dark");
 
             toggleBtn.addEventListener("click", () => {
-                document.body.classList.toggle("light-mode");
-
-
-                if(document.body.classList.contains("light-mode")){
-                    toggleBtn.textContent = "☀️";
-                    localStorage.setItem("theme", "light");
-                } else {
-                    toggleBtn.textContent = "🌙";
-                    localStorage.setItem("theme", "dark");
-                }
+                const current = document.body.classList.contains("light-mode") ? "light" : "dark";
+                const next = current === "light" ? "dark" : "light";
+                setTheme(next);
             });
         </script>
+
         <script>
             function toggleInfo(id) {
                 document.querySelectorAll(".infobox").forEach(box => {
