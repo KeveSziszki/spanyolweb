@@ -205,6 +205,11 @@ body.light-mode button.navbar-toggler {
     width: 30px;
     transition: transform 0.5s ease;
 }
+.lenyil {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
 
 [data-bs-toggle="collapse"][aria-expanded="true"] .lenyil {
     transform: rotate(-180deg);
