@@ -70,7 +70,7 @@ class GameController {
         this.Cols = 20;
         this.BoardHeight = (this.Rows + 1) * this.GridMan.GRID_Y_SPACE + this.GridMan.GRID_Y_OFFSET;
         this.BoardWidth = (this.Cols + 1) * this.GridMan.GRID_X_SPACE + this.GridMan.GRID_X_SPACE / 2;
-        this.layerBG = new LayerBG("canvas_bg", "img/spain.png", this);
+        this.layerBG = new LayerBG("canvas_bg", "spain.png", this);
         this.layerTerrain = new LayerTerrain("canvas_terrain", this);
         this.layerGrid = new LayerGrid("canvas_grid", this);
         this.layerSelection = new LayerSelection("canvas_selection", this);
