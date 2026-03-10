@@ -72,6 +72,7 @@ enum TerrainType {
     River = 3,
     Mountain = 4,
     City = 5,
+    ConqueredCity = 6
 }
 
 class Rect {
@@ -137,6 +138,15 @@ enum UnitType {
     Cavalry = "cavalry",
     Siege = "siege"
 }
+
+class UnitStat
+{
+    public HP: number;
+    public AP: number;
+    public Range: number;
+    public Movement: number;
+}
+
 class GameUnit {
     public Type: UnitType;
     public Cell: GameCell | undefined;
@@ -148,6 +158,8 @@ class GameUnit {
     public CanAttack: boolean;
     public HPLeft: number;
     public IsHooman: boolean;
+    public XP: number = 0;
+    public Level: number = 0;
     constructor(type: UnitType, hp: number, ap: number, range: number = 1, movement: number = 1, isHooman: boolean){
         this.AP = ap;
         this.HP = hp;
@@ -169,7 +181,8 @@ class GameUnit {
         let distance: number = this.Cell.DistanceTo(target);
         return distance <= this.Range &&
             target.Unit != undefined &&
-            target.Unit.IsHooman != this.IsHooman;
+            target.Unit.IsHooman != this.IsHooman &&
+            this.CanAttack;
     }
 }
 

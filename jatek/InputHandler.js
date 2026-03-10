@@ -1,10 +1,18 @@
 class InputHandler {
     constructor(game) {
+        this.AllowInput = true;
+        this.isSongPlaying = false;
         this.game = game;
         this.bind();
+        this.song = new Audio;
+        this.song.src = "Spainishdrama.mp3";
+        this.song.loop = true;
     }
     bind() {
         document.onkeyup = (ev) => {
+            if (!this.AllowInput) {
+                return false;
+            }
             switch (ev.code) {
                 case "KeyS":
                     {
@@ -29,6 +37,9 @@ class InputHandler {
             }
         };
         this.game.Container.onmouseup = (e) => {
+            if (!this.AllowInput) {
+                return false;
+            }
             if (e.button == 0) {
                 let tempSelected = this.getCellAtPixel(e.offsetX, e.offsetY);
                 if (tempSelected != undefined) {
@@ -38,6 +49,39 @@ class InputHandler {
         };
         document.getElementById("btn-next-turn").addEventListener("click", (e) => {
             this.game.NextTurn();
+        });
+        document.getElementById("btn-zene").addEventListener("click", (e) => {
+            let zeneButton = document.getElementById("btn-zene");
+            if (this.isSongPlaying) {
+                this.song.pause();
+                zeneButton.textContent = `Music: Off`;
+            }
+            else {
+                this.song.play();
+                zeneButton.textContent = `Music: On`;
+            }
+            this.isSongPlaying = !this.isSongPlaying;
+        });
+        document.getElementById("btn-inf").addEventListener("click", (e) => {
+            if (this.game.Money >= 100) {
+                this.game.PurchaseUnit(UnitType.Foot, this.game.selectionHandler.SelectedCell);
+                this.game.Money -= 100;
+                this.game.MoneyRedraw();
+            }
+        });
+        document.getElementById("btn-cav").addEventListener("click", (e) => {
+            if (this.game.Money >= 140) {
+                this.game.PurchaseUnit(UnitType.Cavalry, this.game.selectionHandler.SelectedCell);
+                this.game.Money -= 140;
+                this.game.MoneyRedraw();
+            }
+        });
+        document.getElementById("btn-sge").addEventListener("click", (e) => {
+            if (this.game.Money >= 180) {
+                this.game.PurchaseUnit(UnitType.Siege, this.game.selectionHandler.SelectedCell);
+                this.game.Money -= 180;
+                this.game.MoneyRedraw();
+            }
         });
     }
     moveWindow(diffX, diffY) {
