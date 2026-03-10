@@ -13,7 +13,9 @@ class LayerTerrain extends LayerBase {
             for (let col = 0; col < this.game.Cols; col++) {
                 let cell = this.game.Cells[row][col];
                 if (cell.Type == TerrainType.City)
-                    this.game.GridMan.DrawGameCell(this.ctx, cell, offset, this.game.Scale, "orange", "#ffff0077");
+                    this.game.GridMan.DrawGameCell(this.ctx, cell, offset, this.game.Scale, "red", "#88888899");
+                if (cell.Type == TerrainType.ConqueredCity)
+                    this.game.GridMan.DrawGameCell(this.ctx, cell, offset, this.game.Scale, "green", "#88dd8899");
             }
         }
     }

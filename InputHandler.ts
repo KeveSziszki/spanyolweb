@@ -1,11 +1,21 @@
 ﻿class InputHandler {
 	private game: GameController;
+	public AllowInput: boolean = true;
+	private readonly song: HTMLAudioElement;
+	private isSongPlaying: boolean = false;
     constructor(game: GameController) {
         this.game = game;
         this.bind();
+		this.song = new Audio
+		this.song.src = "Spainishdrama.mp3"
+		this.song.loop = true;
     }
     private bind(): void {
         document.onkeyup = (ev: KeyboardEvent) => {
+			if (!this.AllowInput)
+			{
+				return false;
+			}
 			switch (ev.code) {
 				case "KeyS":
 					{
@@ -30,6 +40,10 @@
 			}
 		}
 		this.game.Container.onmouseup = (e: MouseEvent) => {
+			if (!this.AllowInput)
+			{
+				return false;
+			}
 			if (e.button == 0) {
 				let tempSelected = this.getCellAtPixel(e.offsetX, e.offsetY);
 				if (tempSelected != undefined) {
@@ -39,6 +53,44 @@
 		}
 		document.getElementById("btn-next-turn")!.addEventListener("click",(e:MouseEvent) => {
 			this.game.NextTurn()
+		})
+		document.getElementById("btn-zene")!.addEventListener("click",(e:MouseEvent) => {
+			let zeneButton = document.getElementById("btn-zene")!
+			if (this.isSongPlaying)
+			{
+				this.song.pause();
+				zeneButton.textContent = `Music: Off`
+			}
+			else
+			{
+				this.song.play();
+				zeneButton.textContent = `Music: On`
+			}
+			this.isSongPlaying = !this.isSongPlaying
+		})
+		document.getElementById("btn-inf")!.addEventListener("click",(e:MouseEvent) => {
+			if (this.game.Money >= 100)
+			{
+				this.game.PurchaseUnit(UnitType.Foot,this.game.selectionHandler.SelectedCell!)
+				this.game.Money -= 100
+				this.game.MoneyRedraw()
+			}
+		})
+		document.getElementById("btn-cav")!.addEventListener("click",(e:MouseEvent) => {
+			if (this.game.Money >= 140)
+			{
+				this.game.PurchaseUnit(UnitType.Cavalry,this.game.selectionHandler.SelectedCell!)
+				this.game.Money -= 140
+				this.game.MoneyRedraw()
+			}
+		})
+		document.getElementById("btn-sge")!.addEventListener("click",(e:MouseEvent) => {
+			if (this.game.Money >= 180)
+			{
+				this.game.PurchaseUnit(UnitType.Siege,this.game.selectionHandler.SelectedCell!)
+				this.game.Money -= 180
+				this.game.MoneyRedraw()
+			}
 		})
 	}
 

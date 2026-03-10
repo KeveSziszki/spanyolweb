@@ -58,6 +58,10 @@ class LayerUnit extends LayerBase {
         let size = this.game.GridMan.RADIUS * 2;
         ctx.clearRect(point.x - size / 2, point.y - size / 2, size, size);
     }
+    public DrawUnitPublic(unit: GameUnit,cell: GameCell)
+    {
+        this.drawUnitAt(this.ctx, unit, new Pont(cell.Center.x, cell.Center.y));
+    }
     private drawUnitAt(ctx: CanvasRenderingContext2D, unit: GameUnit, point: Pont) {
         let size = this.game.GridMan.RADIUS * 1.5;
         let imageKey = unit.Type + (unit.IsHooman?"":"_ai");
@@ -96,9 +100,11 @@ class LayerUnit extends LayerBase {
         if (hpPercent < .3)
             hpcolor = "red";
 
+        let xpPercent = unit.XP / 10
         let y = point.y + this.game.GridMan.RADIUS - 5;
         let x = point.x - this.game.GridMan.EDGE_LEN / 2;
         let len = this.game.GridMan.EDGE_LEN * hpPercent;
+        let lenXP = (this.game.GridMan.EDGE_LEN - 4)* xpPercent
                 ctx.beginPath();
         ctx.strokeStyle = "#00000088";
         ctx.lineWidth = 3;
@@ -111,6 +117,23 @@ class LayerUnit extends LayerBase {
         ctx.moveTo(x, y);
         ctx.lineTo(x+len, y);
         ctx.stroke(); 
+        ctx.beginPath();
+        if (unit.IsHooman)
+        {
+        ctx.strokeStyle = "#00000088";
+        ctx.lineWidth = 3;
+        ctx.moveTo(x + 1, y - 4);
+        ctx.lineTo(x + (this.game.GridMan.EDGE_LEN - 1), y - 4);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = "#ffdd44ff";
+        ctx.lineWidth = 2;
+        ctx.moveTo(x + 2, y - 4);
+        ctx.lineTo(x + 2 + lenXP, y- 4);
+        ctx.stroke(); 
+        }
+
+
     }
 
 }	

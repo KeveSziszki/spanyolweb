@@ -66,6 +66,7 @@ var TerrainType;
     TerrainType[TerrainType["River"] = 3] = "River";
     TerrainType[TerrainType["Mountain"] = 4] = "Mountain";
     TerrainType[TerrainType["City"] = 5] = "City";
+    TerrainType[TerrainType["ConqueredCity"] = 6] = "ConqueredCity";
 })(TerrainType || (TerrainType = {}));
 class Rect {
     constructor(left, top, width, height) {
@@ -117,10 +118,14 @@ var UnitType;
     UnitType["Cavalry"] = "cavalry";
     UnitType["Siege"] = "siege";
 })(UnitType || (UnitType = {}));
+class UnitStat {
+}
 class GameUnit {
     constructor(type, hp, ap, range = 1, movement = 1, isHooman) {
         this.Range = 1;
         this.Movement = 1;
+        this.XP = 0;
+        this.Level = 0;
         this.AP = ap;
         this.HP = hp;
         this.Type = type;
@@ -140,7 +145,8 @@ class GameUnit {
         let distance = this.Cell.DistanceTo(target);
         return distance <= this.Range &&
             target.Unit != undefined &&
-            target.Unit.IsHooman != this.IsHooman;
+            target.Unit.IsHooman != this.IsHooman &&
+            this.CanAttack;
     }
 }
 //cache képekhez aszinkron betöltés

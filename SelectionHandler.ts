@@ -22,7 +22,9 @@ class SelectionHandler {
 	
 	public SelectCell(cell: GameCell|undefined): void {
 		this.game.layerSelection.clear();
+		let purchase = document.getElementById("purchase")
 		if (this.SelectedCell != undefined) {
+			purchase!.style.visibility = "hidden";
 			if (this.SelectedCell.Unit != undefined &&
 				this.SelectedCell.Unit.CanMoveTo(cell!) &&
 				this.SelectedCell.Unit.IsHooman) {
@@ -48,6 +50,7 @@ class SelectionHandler {
 				this.SelectedCell.Unit.CanAttackTo(cell!) &&
 				this.SelectedCell.Unit.IsHooman)
 			{
+				let levelUp = false;
 				let cellTarget = cell;
 				let cellCurrent = this.SelectedCell;
 				let hoomanDmg = this.calcDamage(cellCurrent.Unit!);
@@ -55,16 +58,41 @@ class SelectionHandler {
 				cellTarget!.Unit!.HPLeft -= hoomanDmg;
 				cellCurrent.Unit!.HPLeft -= aiDmg;
 				cellCurrent.Unit!.CanAttack = false
-
+				cellCurrent.Unit!.XP += 3;
 				if (cellTarget!.Unit!.HPLeft <= 0)
 				{
+					cellCurrent.Unit!.XP += 3;
 					this.Die(cellTarget!.Unit!)
+					this.game.Money += 35;
+					this.game.MoneyRedraw()
 				}
 				else
 				{
 					this.game.layerUnit.MoveUnit(cellTarget!.Unit!, cellTarget!)
 				}
-				if (cellCurrent!.Unit!.HPLeft <= 0)
+				if (cellCurrent!.Unit!.XP >= 10)
+				{
+					levelUp = true
+				}
+				if (levelUp == true)
+				{
+					if (cellCurrent!.Unit!.HPLeft <= 0)
+					{
+						cellCurrent!.Unit!.HPLeft = cellCurrent!.Unit!.HP / 4
+					}
+					else
+					{
+						cellCurrent!.Unit!.HPLeft += cellCurrent!.Unit!.HP / 2
+						cellCurrent!.Unit!.HPLeft = Utility.Clamp(cellCurrent!.Unit!.HPLeft,0,cellCurrent!.Unit!.HP)
+					}
+					if (cellCurrent!.Unit!.Level <=3)
+					{
+						cellCurrent!.Unit!.AP++;
+					}
+					cellCurrent!.Unit!.XP -= 10;
+					cellCurrent!.Unit!.Level++;
+				}
+				if (cellCurrent!.Unit!.HPLeft <= 0 && levelUp == false)
 				{
 					this.Die(cellCurrent!.Unit!)
 				}
@@ -72,16 +100,16 @@ class SelectionHandler {
 				{
 					this.game.layerUnit.MoveUnit(cellCurrent.Unit!, cellCurrent)
 				}
-
 				cell = undefined;
 			}
 			else if (this.SelectedCell.Row == cell!.Row && this.SelectedCell.Col == cell!.Col) {
 				cell = undefined;
 			}
-
-			
 		}
-
+		if (cell != undefined && cell!.Type == TerrainType.ConqueredCity && cell!.Unit == undefined)
+		{
+			purchase!.style.visibility = "visible";
+		}
 		this.SelectedCell = cell;
 		if (this.SelectedCell != undefined) {
 			this.game.layerSelection.DrawSelection(this.SelectedCell);
