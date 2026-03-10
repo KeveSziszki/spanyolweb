@@ -263,6 +263,10 @@ body.light-mode #collapseExample1 .card-body {
     padding: 1rem;
 }
 
+#purchase{
+    visibility: hidden;
+}
+
 #tovabbilatvanyossag {
     text-decoration: none;
     font-weight: bold;
