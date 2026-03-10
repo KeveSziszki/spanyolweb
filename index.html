@@ -415,9 +415,14 @@
             </div>
         </section>
 
-<section id="jatek" class="py-5">
+    <section id="jatek" class="py-5">
             <div class="container">
                 <div class="game-section text-center p-5 shadow-lg">
+                    <div class="HUD">
+                        <span id="money">Money: 0ł</span>
+                        <span id="cities">Remaining Cities</span>
+                        <span id="turns">Turn: 1</span>
+                    </div>
                     <div id="gamePage">
                         <canvas id="canvas_bg"></canvas>
                         <canvas id="canvas_terrain"></canvas>
@@ -435,10 +440,14 @@
                         };
                     </script>
                     <div class="buttons">
-                        <span id="turns">Turn: 1</span>
+                        <button type="button" id="btn-zene">Music: Off</button>
                         <button type="button" id="btn-next-turn">Next Turn</button>
-                        
-                    </div>    
+                    </div>
+                    <div id="purchase">
+                        <button type="button" id="btn-inf">Infantry: 100ł</button>
+                        <button type="button" id="btn-cav">Cavalry: 140ł</button>
+                        <button type="button" id="btn-sge">Siege: 180ł;</button>
+                    </div>  
                 </div>
             </div>
         </section>
